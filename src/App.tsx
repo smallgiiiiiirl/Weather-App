@@ -25,7 +25,7 @@ export class App extends Component<{}, AppProps> {
     }
     fetchWeather = () => {
         this.setState({ isLoading: true });
-        FetchFunc("https://api.openweathermap.org / data / 2.5 / weather?q =London,uk & APPID=")
+        FetchFunc(`https://api.openweathermap.org / data / 2.5 / weather?q =London,uk & APPID=${process.env.REACT_APP_OPEN_WEATHER_TOKEN}`)
             .then(({ data }) => {
                 this.setState({ weathers: data })
             })
@@ -33,7 +33,7 @@ export class App extends Component<{}, AppProps> {
     componentDidMount() {
         this.setState({ isLoading: true });
 
-        FetchFunc("https://api.openweathermap.org / data / 2.5 / weather?q =London,uk & APPID=")
+        FetchFunc(`https://api.openweathermap.org / data / 2.5 / weather?q =London,uk & APPID=${process.env.REACT_APP_OPEN_WEATHER_TOKEN}`)
             .then(({ data }) => {
                 this.setState({ weathers: data });
             })
